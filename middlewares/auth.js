@@ -2,26 +2,22 @@ const jwt = require("jsonwebtoken")
 const SECRET_KEY = "userSignUp"
 
 const auth = (req, res, next) => {
-
   try {
+    const token = req.headers.authorization?.split(" ")[1] || req.cookies?.jwt
 
-    let token = req.headers.authorization;
-
-    if(token){
-      token = token.split(" ")[1];
-      let user = jwt.verify(token, SECRET_KEY)
+    if (token) {
+      const user = jwt.verify(token, SECRET_KEY)
       req.userId = user.id
-    } else{
-      res.status(401).json({message: "Unauthorized User"})
+      next()
+    } else {
+      const queryParams = new URLSearchParams({ success: false, message: "unauthorized" }).toString()
+      return res.status(401).redirect(`${req.path}?${queryParams}`)
     }
-
-  } catch(err) {
+  } catch (err) {
     console.log(err)
-    res.status(401).json({message: "Unauthorized User"})
+    const queryParams = new URLSearchParams({ success: false, message: "unauthorized" }).toString()
+    return res.status(401).redirect(`${req.path}?${queryParams}`)
   }
-
-  next()
-
 }
 
-module.exports = auth
+module.exports = { auth }

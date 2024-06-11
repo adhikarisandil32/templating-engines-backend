@@ -3,24 +3,41 @@
     <div>
       <h2 class="text-center">Create An Account</h2>
     </div>
-    <form class="flex flex-column gap" method="post">
+    <!-- enctype is a must for multer to upload files -->
+    <form class="flex flex-column gap" method="post" action="/signup" enctype="multipart/form-data">
       <div>
-        <label for="name" class="font-bold">Username:</label><br>
-        <input type="text" id="name" class="input-text-tag" name="username" required>
+        <label for="email" class="font-bold">Email</label><br />
+        <input type="email" id="email" class="input-text-tag" name="email" placeholder="Enter Email" required />
+      </div>
+
+      <div>
+        <label for="name" class="font-bold">Name</label><br />
+        <input type="text" id="name" class="input-text-tag" name="name" placeholder="Enter Name" required />
+      </div>
+
+      <div>
+        <label for="password" class="font-bold">Password</label><br />
+        <input
+          type="password"
+          id="password"
+          class="input-text-tag"
+          name="password"
+          placeholder="Enter password"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="image" class="font-bold">Profile Picture</label> <br />
+        <input type="file" accept="image/*" id="image" name="image" />
       </div>
       <div>
-        <label for="password" class="font-bold">Password:</label><br>
-        <input type="password" id="password" class="input-text-tag" name="password" required>
-      </div>
-      <div>
-        <button
-          type="submit"
-          class="button font-bold font-size-16 w-full"
-        >Create Account</button>
+        <button type="submit" class="button font-bold font-size-16 w-full">Create Account</button>
       </div>
     </form>
     <div class="text-center">
-      Already have an account ? <br> <a class="font-color-blue font-bold" href="/signin">Sign In Here</a>
+      Already have an account ? <br />
+      <a class="font-color-blue font-bold" href="/signin">Sign In Here</a>
     </div>
   </div>
 </div>

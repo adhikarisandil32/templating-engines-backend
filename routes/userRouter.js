@@ -1,18 +1,17 @@
 const express = require("express")
 const router = express.Router()
-const { signin, signup } = require("../controller/userController")
+const { signinGetReq, signinPostReq, signupGetReq, signupPostReq, homeGetReq } = require("../controller/userController")
+const { upload } = require("../middlewares/multer")
 
-router.get("/signin", (req, res) => {
-  res.status(200).render("signin", {title: "Sign In"})
-})
+// sign in route
+router.get("/signin", signinGetReq)
+router.post("/signin", signinPostReq)
 
-router.post("/signin", signin)
+// signup route
+router.get("/signup", signupGetReq)
+router.post("/signup", upload.single("image"), signupPostReq)
 
-router.get("/signup", (req, res) => {
-  res.status(200).render("signup", {title: "Sign Up"})
-})
-
-router.post("/signup", signup)
+// home route
+router.get("/", homeGetReq)
 
 module.exports = router
-

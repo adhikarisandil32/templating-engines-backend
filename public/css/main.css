@@ -1,107 +1,18 @@
-*, *::after, *::before{
+*,
+*::after,
+*::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-:root{
+:root {
   font-family: sans-serif;
   font-size: 16px;
 }
 
-.w-full{
-  width: 100%;
-}
-.w-400{
-  width: 400px;
-}
-
-.padding{
-  padding: 1rem;
-}
-.p-top{
-  padding-top: 1rem;
-}
-.p-bottom{
-  padding-bottom: 1rem;
-}
-.p-left{
-  padding-left: 1rem;
-}
-.p-right{
-  padding-right: 1rem;
-}
-
-.flex{
-  display: flex;
-}
-.flex-column{
-  flex-direction: column;
-}
-.gap{
-  gap: 1rem;
-}
-
-.button{
-  display: block;
-  border: 2px solid black;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  color: black;
-  text-decoration: none;
-  background-color: transparent;
-}
-
-.button:hover{
-  background-color: black;
-  color: white;
-}
-
-.bg-gray{
-  background-color: #e6e6e6;
-}
-
-.height{
-  height: 100px;
-}
-
-.text-right{
-  text-align: right;
-}
-.text-center{
-  text-align: center;
-}
-
-.border{
-  border: 2px solid black;
-}
-.border-radius-8{
-  border-radius: 8px;
-}
-
-.img-size{
-  height: 3rem;
-}
-
-.items-center{
-  align-items: center;
-}
-.justify-between{
-  justify-content: space-between;
-}
-.justify-end{
-  justify-content: flex-end;
-}
-.justify-center{
-  justify-content: center;
-}
-
-.cursor-pointer{
-  cursor: pointer;
-}
-
-.input-text-tag{
+/* components */
+.input-text-tag {
   width: 100%;
   border: 2px solid #404040;
   border-radius: 0.375rem;
@@ -111,12 +22,144 @@
   font-size: 1rem;
 }
 
-.font-bold{
+.button {
+  display: block;
+  border: 2px solid black;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+  background-color: transparent;
+  font-size: 1rem;
+}
+
+/* function based */
+.center-children {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.v-align {
+  vertical-align: middle;
+}
+
+.font-bold {
   font-weight: bold;
 }
-.font-color-blue{
+.font-color-blue {
   color: #00004d;
 }
-.font-size-16{
+.font-size-16 {
   font-size: 1rem;
+}
+
+.button:hover {
+  background-color: black;
+  color: white;
+}
+
+.bg-gray {
+  background-color: #e6e6e6;
+}
+
+.height {
+  height: 100px;
+}
+.h-25px {
+  height: 25px;
+}
+.h-25px {
+  height: 25px;
+}
+.h-40px {
+  height: 40px;
+}
+
+.w-50px {
+  width: 50px;
+}
+.w-50px {
+  width: 50px;
+}
+.w-40px {
+  width: 40px;
+}
+
+.w-full {
+  width: 100%;
+}
+.w-400 {
+  width: 400px;
+}
+
+.padding {
+  padding: 1rem;
+}
+.p-top {
+  padding-top: 1rem;
+}
+.p-bottom {
+  padding-bottom: 1rem;
+}
+.p-left {
+  padding-left: 1rem;
+}
+.p-right {
+  padding-right: 1rem;
+}
+
+.flex {
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
+}
+.gap {
+  gap: 1rem;
+}
+
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+
+.border {
+  border: 2px solid black;
+}
+.border-radius-8 {
+  border-radius: 8px;
+}
+.border-gray {
+  border: 1px solid gray;
+}
+
+.img-size {
+  height: 3rem;
+}
+.object-cover {
+  object-fit: cover;
+}
+.object-center {
+  object-position: center;
+}
+
+.items-center {
+  align-items: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.justify-center {
+  justify-content: center;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

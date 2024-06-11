@@ -1,0 +1,27 @@
+<div class="bg-gray padding flex gap justify-between">
+  <a class="cursor-pointer" href="/">
+    <img
+      class="img-size"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Google_Logo_%281998%29.png/233px-Google_Logo_%281998%29.png"
+      alt="Google Logo"
+    />
+  </a>
+
+  <div class="flex gap items-center">
+    <!-- There is no need to drill the values in, locals.authenticationStatus (directly coming from the controller res.render) is also available here -->
+    <% if (locals.authStatus) { %>
+    <!--  -->
+
+    <img src=<%= locals.user_info?.imageUrl ?? "/assets/no-img.webp" %> alt="PP" class="h-40px w-40px v-align
+    border-gray object-center object-cover" />
+    <span>Welcome, <%= locals.userInfo?.fullName %></span>
+    <button class="button" id="logout-button">Logout</button>
+
+    <% } else { %>
+
+    <a class="button" href="/signin"> Sign In </a>
+    <a class="button" href="/signup"> Sign Up </a>
+
+    <% }%>
+  </div>
+</div>
