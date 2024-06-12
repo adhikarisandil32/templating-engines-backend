@@ -7,10 +7,6 @@ const signupGetReq = async (req, res) => {
 }
 
 const signupPostReq = async (req, res) => {
-  //Check for existing user -- done
-  //generate hash password -- done
-  //use creation -- done
-  //token generate -- done
   const { email, password, name } = req.body
 
   try {
@@ -29,8 +25,8 @@ const signupPostReq = async (req, res) => {
 
     return res.status(200).redirect("/signin")
   } catch (err) {
-    console.log(err)
-    return res.status(500).redirect(req.path)
+    console.log(err.message)
+    return res.status(406).render("signup", { error: err.message })
   }
 }
 
@@ -60,8 +56,17 @@ const signinPostReq = async (req, res) => {
 
     return res.status(200).cookie("jwt", token, { httpOnly: true }).redirect("/")
   } catch (err) {
-    console.log(err)
-    return res.status(500).json({ message: "something went wrong" })
+    console.log(err.message)
+    return res.clearCookie("jwt").redirect(req.path)
+  }
+}
+
+const signoutPostReq = async (_, res) => {
+  try {
+    return res.status(200).clearCookie("jwt").redirect("/signin")
+  } catch (error) {
+    console.log(err.message)
+    return res.status(200).redirect("/")
   }
 }
 
@@ -70,7 +75,7 @@ const homeGetReq = async (req, res) => {
     const token = req.cookies?.jwt
 
     if (!token) {
-      return res.render("index", { authenticationStatus: false, userInfo: null, title: "Home" })
+      return res.render("index", { authStatus: false, userInfo: null, title: "Home" })
     }
 
     const { id } = jwt.verify(token, process.env.SECRET_KEY)
@@ -84,4 +89,4 @@ const homeGetReq = async (req, res) => {
   }
 }
 
-module.exports = { signinGetReq, signinPostReq, signupGetReq, signupPostReq, homeGetReq }
+module.exports = { signinGetReq, signinPostReq, signupGetReq, signupPostReq, homeGetReq, signoutPostReq }

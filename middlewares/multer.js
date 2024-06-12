@@ -12,6 +12,26 @@ const storage = multer.diskStorage({
   },
 })
 
-const upload = multer({ storage: storage })
+const uploadFile = (req, res, next) => {
+  // this is the preperation for uploading, so no error can be here
+  const upload = multer({
+    storage: storage,
+    limits: {
+      fileSize: 1024 * 1024,
+    },
+  }).single("image")
 
-module.exports = { upload }
+  // real uploading process begins hence the try catch inside here
+  upload(req, res, function (err) {
+    try {
+      if (err) {
+        throw new Error(err.message)
+      }
+      next()
+    } catch (error) {
+      return res.status(406).render("signup", { error: err.message })
+    }
+  })
+}
+
+module.exports = { uploadFile }

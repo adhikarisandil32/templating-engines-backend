@@ -3,7 +3,7 @@
     <div>
       <h2 class="text-center">Create An Account</h2>
     </div>
-    <!-- enctype is a must for multer to upload files -->
+    <!-- enctype is a must for multer to upload files by default its a x-www-form-urlencoded -->
     <form class="flex flex-column gap" method="post" action="/signup" enctype="multipart/form-data">
       <div>
         <label for="email" class="font-bold">Email</label><br />
@@ -31,6 +31,13 @@
         <label for="image" class="font-bold">Profile Picture</label> <br />
         <input type="file" accept="image/*" id="image" name="image" />
       </div>
+
+      <% if (locals.error) { %>
+      <div class="text-center bg-error">
+        <span class="py-4 block"><%= locals.error %></span>
+      </div>
+      <% } %>
+
       <div>
         <button type="submit" class="button font-bold font-size-16 w-full">Create Account</button>
       </div>

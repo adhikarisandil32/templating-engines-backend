@@ -34,6 +34,11 @@
   font-size: 1rem;
 }
 
+.bg-error {
+  background-color: #ff3333;
+  color: #d9d9d9;
+}
+
 /* function based */
 .center-children {
   display: flex;
@@ -108,6 +113,14 @@
 }
 .p-right {
   padding-right: 1rem;
+}
+.py-4 {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.block {
+  display: block;
 }
 
 .flex {

@@ -15,7 +15,10 @@
     <img src=<%= locals.user_info?.imageUrl ?? "/assets/no-img.webp" %> alt="PP" class="h-40px w-40px v-align
     border-gray object-center object-cover" />
     <span>Welcome, <%= locals.userInfo?.fullName %></span>
-    <button class="button" id="logout-button">Logout</button>
+
+    <form action="/signout" method="POST">
+      <button type="submit" class="button">Logout</button>
+    </form>
 
     <% } else { %>
 

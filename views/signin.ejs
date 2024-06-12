@@ -6,11 +6,18 @@
     <form class="flex flex-column gap" method="post" action="/signin">
       <div>
         <label for="name" class="font-bold">Email:</label><br />
-        <input type="text" id="name" class="input-text-tag" name="email" required />
+        <input type="text" id="name" class="input-text-tag" name="email" placeholder="Enter email" required />
       </div>
       <div>
         <label for="password" class="font-bold">Password:</label><br />
-        <input type="password" id="password" class="input-text-tag" name="password" required />
+        <input
+          type="password"
+          id="password"
+          class="input-text-tag"
+          name="password"
+          placeholder="Enter password"
+          required
+        />
       </div>
       <div>
         <button type="submit" class="button font-bold font-size-16 w-full">Sign In</button>
